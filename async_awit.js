@@ -1,12 +1,12 @@
 //Async/await is the part of ES8
 //Its helpus to read the code easily.
 
-This is Promise based fetch
+//This is Promise based fetch
 fetch('https://jsonplaceholder.typicode.com/users')
     .then(resp =>resp.json())
     .then(console.log)
 
-This is async based function
+//This is async based function
 async function fetchUser(){
     const resp = await fetch('https://jsonplaceholder.typicode.com/users');
     const data = await resp.json();
