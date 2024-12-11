@@ -28,9 +28,9 @@ Promise.all(urls.map(url =>{
     return fetch(url).then(response => response.json())
 }))
     .then(result => {
-        console.log(result[0]);
-        console.log(result[1]);
-        console.log(result[2]);
+        // console.log(result[0]);
+        // console.log(result[1]);
+        // console.log(result[2]);
     })
     .catch('OOps')
 
@@ -46,7 +46,16 @@ const getData = async function(){
     console.log(albums);
 }
 
-getData();
+//getData();
 
+getData2 = async function(){
+    const arrayOfPromises = urls.map(url => fetch(url));
+    for await (let item of arrayOfPromises) {
+        const data = await item.json();
+        console.log(data);
+    }
+}
+
+getData2();
 
 
