@@ -41,6 +41,7 @@ const  promise2 = new Promise((resolve, reject) => {
     setTimeout(resolve, 100, 'hiii');
 })
 
+
 const  promise3 = new Promise((resolve, reject) => {
     setTimeout(resolve, 1000, 'Doyel');
 })
