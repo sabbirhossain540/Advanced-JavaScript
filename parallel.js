@@ -21,6 +21,8 @@ async function race() {
     return `race is done: ${output1}`;
 }
 
+
+
 async function sequence() {
     const output1 = await a();
     const output2 = await b();
