@@ -33,3 +33,5 @@ Promise.all(urls.map(url =>
     })
     .catch(err => console.log("OOPS"))
     .finally(() => console.log('Finished'));
+
+
