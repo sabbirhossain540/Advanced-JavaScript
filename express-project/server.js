@@ -18,11 +18,35 @@ const friends = [
     }
 ]
 
-app.get('/', (req, res) => {
+app.use((req, res, next) => {
+   const start = Date.now();
+
+   next();
+   const delta = Date.now() - start;
+    console.log(`${req.url}${req.url} ${delta}ms`);
+});
+
+app.use(express.json());
+
+
+app.post('/friends', (req, res) => {
+    if(!req.body.name){
+        return res.status(400).json({message: 'Name is required'});
+    }
+    const newFriend = {
+        id: friends.length,
+        name: req.body.name
+    };
+
+    friends.push(newFriend);
+    res.json(newFriend);
+})
+
+app.get('/friends', (req, res) => {
     res.json(friends);
 })
 
-app.get('/fri/:id', (req, res) => {
+app.get('/friends/:id', (req, res) => {
     console.log("Here");
     const firendId = req.params.id;
     const friend = friends[firendId];
